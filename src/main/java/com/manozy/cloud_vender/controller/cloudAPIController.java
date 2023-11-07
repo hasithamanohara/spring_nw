@@ -7,16 +7,23 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/cloudvender")
 public class cloudAPIController {
     cloud_vendor Cloudvendor;
-    @GetMapping("/getVendor")
+    @GetMapping("{vendorId}")
     public cloud_vendor getCloudVendor(String vendorId){
-        return Cloudvendor;
-//                new cloud_vendor;
-//                ("c","vendor1",
-//                   "address1","071");
+        return new cloud_vendor("c1","vendor1","address1","071");
     }
     @PostMapping
     public String createCloudVendor(@RequestBody cloud_vendor Cloudvendor){
         this.Cloudvendor = Cloudvendor;
         return "succes";
+    }
+    @PutMapping
+    public String updateCloudVendor (@RequestBody cloud_vendor Cloudvendor){
+        this.Cloudvendor = Cloudvendor;
+        return "updated";
+    }
+    @DeleteMapping("{vendorId}")
+    public String deleteCloudVendor(String vendorId){
+        this.Cloudvendor= null;
+        return "deleted";
     }
 }
