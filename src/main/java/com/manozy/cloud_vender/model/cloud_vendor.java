@@ -1,5 +1,13 @@
 package com.manozy.cloud_vender.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "cloud_venders")
 public class cloud_vendor {
+    @Id
     private String vendorId;
     private String vendorName;
     private String vendorAddress;
